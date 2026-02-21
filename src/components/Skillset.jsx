@@ -238,8 +238,7 @@ function VerticalSectionTitle({ heading }) {
         justifyContent: "center",
         paddingLeft: 6,
         whiteSpace: "nowrap",
-        
-        paddingLeft: 6,
+      
       }}
     >
       {heading}
