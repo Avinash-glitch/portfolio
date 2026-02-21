@@ -6,7 +6,7 @@ import Hero from "./components/Hero";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience";
 import profilePic from "./assets/profile.jpeg";
-import Skillset from './components/SkillSet';
+import Skillset from './components/Skillset';
 
 
 function App() {
