@@ -5,10 +5,13 @@ const experience = [
     role: "Software Development Engineer for Transportation",
     duration: "Sept 2025 - Present",
     details: `
-• Designed and implemented a rota generation application in Python using Streamlit UI, automatically allocating staff to daily tasks based on schedules, holidays, and operational requirements.
-• The tool is actively used by the team to streamline workforce planning, improving efficiency by 50%.
-• Ensured fair rotation and increased productivity by 40%.
-• Built internal operational tools as browser extensions in JavaScript to optimize and automate workflows, reducing manual effort and improving pipeline efficiency by 29%.
+-> Designed and implemented a rota generation application in Python using Streamlit UI, automatically allocating staff to daily tasks based on schedules, holidays, and operational requirements.
+
+-> The tool is actively used by the team to streamline workforce planning, improving efficiency by 50%.
+
+-> Ensured fair rotation and increased productivity by 40%.
+
+-> Built internal operational tools as browser extensions in JavaScript to optimize and automate workflows, reducing manual effort and improving pipeline efficiency by 29%.
 `
   },
   {

@@ -26,4 +26,5 @@
   line-height: 1.3;
   color: #dadfe5;
   white-space: pre-wrap;
+  align-items: flex-start;
 }
