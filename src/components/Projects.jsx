@@ -75,7 +75,7 @@ function Projects() {
       </h2>
 
       {/* Arrows */}
-      <button
+      {/* <button
         onClick={() => rotate("left")}
         style={arrowStyle("left", isHovered)}
       >
@@ -87,7 +87,7 @@ function Projects() {
         style={arrowStyle("right", isHovered)}
       >
         ▶
-      </button>
+      </button> */}
 
       {/* Carousel */}
       <div

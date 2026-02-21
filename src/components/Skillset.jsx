@@ -1,9 +1,19 @@
-import pythonLogo from "../assets/python.svg";
+import pythonLogo from "../assets/python.svg" ;
 import cppLogo from "../assets/cplusplus.svg";
 import streamlitLogo from "../assets/streamlit.svg";
 import juceLogo from "../assets/juce.svg";
 import langchainLogo from "../assets/langchain.svg";
 import arduinoLogo from "../assets/arduino.svg";
+import SQLogo from "../assets/mysql.svg";
+import scalaLogo from "../assets/scala.svg";
+// import matlabLogo from "../assets/matlab.svg";
+// import abletonLogo from "../assets/ableton.svg";
+import jiraLogo from "../assets/jira.svg";
+import labviewLogo from "../assets/labview.svg";
+import umlLogo from "../assets/uml.svg";
+import airtableLogo from "../assets/airtable.svg";
+import gitlabLogo from "../assets/gitlab.svg";
+
 import { useEffect, useRef, useState } from "react";
 
 /* ─── DATA ─────────────────────────────────────────────────────────── */
@@ -13,14 +23,15 @@ const sections = [
     heading: "Technical Skills",
     items: [
       { id: 1, name: "Python",           logo: pythonLogo, level: 5 },
-      { id: 2, name: "C / C++",          logo: cppLogo,    level: 4 },
+      { id: 2, name: "C/C++",          logo: cppLogo,    level: 4 },
       { id: 3, name: "Embedded C",       logo: null,       level: 4 },
       { id: 4, name: "C#",               logo: null,       level: 3 },
       { id: 5, name: "VHDL",             logo: null,       level: 3 },
-      { id: 6, name: "SQL",              logo: null,       level: 4 },
-      { id: 7, name: "Scala",            logo: null,       level: 3 },
+      { id: 6, name: "SQL",              logo: SQLogo,       level: 4 },
+      { id: 7, name: "Scala",            logo: scalaLogo,       level: 3 },
       { id: 8, name: "Signal Processing",logo: null,       level: 4 },
       { id: 9, name: "Machine Learning", logo: null,       level: 4 },
+      { id: 10, name: "GitLab",   logo: gitlabLogo,          level: 5 },
     ],
   },
   {
@@ -34,9 +45,12 @@ const sections = [
       { id: 5,  name: "Unity",     logo: null,          level: 3 },
       { id: 6,  name: "Vivado",    logo: null,          level: 3 },
       { id: 7,  name: "Arduino",   logo: arduinoLogo,   level: 4 },
-      { id: 8,  name: "Jira",      logo: null,          level: 4 },
+      { id: 8,  name: "Jira",      logo: jiraLogo,          level: 4 },
       { id: 9,  name: "Tableau",   logo: null,          level: 3 },
       { id: 10, name: "Ableton",   logo: null,          level: 5 },
+      { id: 11, name: "Labview",   logo: labviewLogo,          level: 5 },
+      { id: 12, name: "UML",   logo: umlLogo,          level: 5 },
+      { id: 13, name: "Airtable",   logo: airtableLogo,          level: 5 },
     ],
   },
   {
@@ -81,7 +95,7 @@ function SkillCircles({ level, animate }) {
   }, [animate, level]);
 
   return (
-    <div style={{ display: "flex", gap: "4px" }}>
+    <div style={{ display: "flex", gap: "10px" }}>
       {Array.from({ length: TOTAL_CIRCLES }).map((_, idx) => (
         <div
           key={idx}
@@ -89,8 +103,8 @@ function SkillCircles({ level, animate }) {
             width: 10,
             height: 10,
             borderRadius: "50%",
-            background: idx < filled ? "var(--accent)" : "transparent",
-            border: "1.5px solid var(--accent)",
+            background: idx < filled ? "#ebd39b" : "transparent",
+            border: "1.5px #b76363",
             transition: "background 0.2s",
           }}
         />
@@ -119,7 +133,7 @@ function SkillCard({ skill }) {
         <img
           src={skill.logo}
           alt={skill.name}
-          style={{ width: 28, height: 28, objectFit: "contain" }}
+          style={{ width: 28, height: 28, objectFit: "contain", filter: "invert(1)" }}
           onError={e => { e.target.style.display = "none"; }}
         />
       ) : (
@@ -155,7 +169,7 @@ function CertCard({ cert, index }) {
       style={{
         padding: "14px 18px",
         borderRadius: 10,
-        background: "var(--card-bg)",
+        background: "#836666",
         border: "1px solid var(--border)",
         display: "flex", alignItems: "center", gap: 14,
         opacity: inView ? 1 : 0,
@@ -189,7 +203,7 @@ function HobbyTag({ hobby, index }) {
       style={{
         padding: "10px 18px",
         borderRadius: 999,
-        background: "var(--card-bg)",
+        background: "#603f3f",
         border: "1px solid var(--border)",
         display: "inline-flex", alignItems: "center", gap: 8,
         fontSize: 14,
@@ -212,17 +226,19 @@ function VerticalSectionTitle({ heading }) {
         writingMode: "vertical-rl",
         textOrientation: "mixed",
         transform: "rotate(180deg)",
-        fontSize: 11,
+        fontSize: 20,
         fontWeight: 700,
         letterSpacing: "0.18em",
         textTransform: "uppercase",
-        color: "var(--accent)",
+        color: "#6ab1b37b",
         opacity: 0.55,
         userSelect: "none",
-        whiteSpace: "nowrap",
         alignSelf: "stretch",
         display: "flex",
-        alignItems: "center",
+        justifyContent: "center",
+        paddingLeft: 6,
+        whiteSpace: "nowrap",
+        
         paddingLeft: 6,
       }}
     >
@@ -239,7 +255,7 @@ function SectionBlock({ section }) {
       <div style={{ flex: 1 }}>
         <h2 style={{
           fontSize: 0, fontWeight: 700, letterSpacing: "0.12em",
-          textTransform: "uppercase", opacity: 0.4, marginBottom: 16,
+          textTransform: "uppercase", opacity: 0.4, marginBottom: 30,
         }}>
           {section.heading}
         </h2>
@@ -275,14 +291,19 @@ function SkillsTracker({ contentRef }) {
 
   useEffect(() => {
     const onScroll = () => {
-      const el = contentRef.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const winH = window.innerHeight;
-      const scrolled = winH - rect.top;
-      const total = rect.height + winH;
-      setProgress(Math.min(1, Math.max(0, scrolled / total)));
-    };
+    const el = contentRef.current;
+    if (!el) return;
+
+    const rect = el.getBoundingClientRect();
+    const winH = window.innerHeight;
+
+    const start = winH * 0.8;  // when animation starts
+    const end = -rect.height * 0.2; // when animation ends
+
+    const progress = (start - rect.top) / (start - end);
+
+    setProgress(Math.min(1, Math.max(0, progress)));
+  };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
@@ -301,8 +322,8 @@ function SkillsTracker({ contentRef }) {
           <span
             key={i}
             style={{
-              fontSize: 13, fontWeight: 800, letterSpacing: "0.1em",
-              color: lit ? "var(--accent)" : "var(--muted)",
+              fontSize: 35, fontWeight: 800, letterSpacing: "0.1em",
+              color: lit ? "#ff4848" : "#ecc5c5",
               transition: "color 0.3s",
               userSelect: "none",
             }}
@@ -320,7 +341,7 @@ export default function Skillset() {
   const contentRef = useRef(null);
 
   return (
-    <section style={{ display: "flex", gap: 24, padding: "60px 40px" }}>
+    <section style={{ display: "flex", gap: 12,paddingTop: 200 }}>
       {/* Page title */}
       <h1 style={{
         writingMode: "vertical-rl",
