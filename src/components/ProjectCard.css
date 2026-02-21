@@ -1,0 +1,59 @@
+.project-card-container {
+  width: 320px;
+  height: 100px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.project-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.project-card-container:hover .project-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front & Back */
+.project-card-front,
+.project-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  padding: 20px;
+  backface-visibility: hidden;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* Front */
+.project-card-front {
+  background-color: #0f172a;
+}
+
+/* Back */
+.project-card-back {
+  background-color: #3b82f6;
+  transform: rotateY(180deg);
+}
+
+/* See More Button */
+.see-more {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 14px;
+  background-color: rgba(255,255,255,0.2);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.see-more:hover {
+  background-color: rgba(255,255,255,0.4);
+}
