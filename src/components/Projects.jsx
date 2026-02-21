@@ -4,12 +4,14 @@ import ProjectCard from "./ProjectCard";
 function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
-
+  const [startX, setStartX] = useState(null);
+  const minSwipeDistance = 50;
   const projects = [
     {
       title: "Multi-band Compression with AI guidance",
       description: "Built a Multi-band compressor using Linkwitz-Riley filters...",
       tech: ["cpp", "juce"],
+      link: 'https://github.com/Avinash-glitch/multiBandCompressor_Mixer'
     },
     {
       title: "TikTok AI Blog Creator",
@@ -37,14 +39,34 @@ function Projects() {
       setActiveIndex((prev) => (prev + 1) % total);
     }
   };
+  const onWheel = (e) => {
+  e.preventDefault();
+  if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+    if (e.deltaX > 20) rotate("right");
+    else if (e.deltaX < -20) rotate("left");
+  }
+  };
+  const onPointerDown = (e) => {
+  setStartX(e.clientX);
+    };
+
+  const onPointerUp = (e) => {
+    if (!startX) return;
+
+    const distance = startX - e.clientX;
+
+    if (distance > minSwipeDistance) {
+      rotate("right");
+    } else if (distance < -minSwipeDistance) {
+      rotate("left");
+    }
+
+    setStartX(null);
+  };
 
   return (
-    <section
-      style={{
-        padding: "80px 20px",
-        position: "relative",
-        overflow: "hidden",
-      }}
+    <section style={{ marginTop: "80px" }}
+    
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -69,15 +91,21 @@ function Projects() {
 
       {/* Carousel */}
       <div
-        style={{
-          position: "relative",
-          height: "300px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          perspective: "1000px",
-        }}
-      >
+          onPointerDown={onPointerDown}
+          onPointerUp={onPointerUp}
+          onWheel={onWheel}
+          style={{
+            position: "relative",
+            height: "300px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            perspective: "1000px",
+            userSelect: "none",
+            touchAction: "pan-y",
+          }}
+        >
+
         {projects.map((project, index) => {
           // Circular offset calculation
           let offset = index - activeIndex;
@@ -89,20 +117,38 @@ function Projects() {
             <div
               key={index}
               style={{
-                position: "absolute",
-                transition: "all 0.5s ease",
-                transform: `
-                  translateX(${offset * 350}px)
-                  rotateY(${offset * -30}deg)
-                `,
-                opacity: Math.abs(offset) > 2 ? 0 : 1,
-                zIndex: total - Math.abs(offset),
-              }}
+                  position: "absolute",
+                  transition: "all 0.5s ease",
+                  transform: `
+                    translateX(${offset * 320}px)
+                    scale(${Math.abs(offset) === 0 ? 1 : 0.8})
+                    rotateY(${offset * -30}deg)
+                  `,
+                  opacity: Math.abs(offset) > 1 ? 0 : Math.abs(offset) === 0 ? 1 : 0.5,
+                  zIndex: total - Math.abs(offset),
+                  pointerEvents: Math.abs(offset) > 1 ? "none" : "auto",
+                }}
             >
               <ProjectCard {...project} />
             </div>
           );
         })}
+        </div>
+
+      {/* Draggable progress bar */}
+      <div style={{ display: "flex", justifyContent: "center", marginTop: "24px" }}>
+        <input
+          type="range"
+          min={0}
+          max={total - 1}
+          value={activeIndex}
+          onChange={(e) => setActiveIndex(Number(e.target.value))}
+          style={{
+            width: "200px",
+            accentColor: "#fff",
+            cursor: "pointer",
+          }}
+        />
       </div>
     </section>
   );

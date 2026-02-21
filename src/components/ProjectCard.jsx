@@ -115,14 +115,14 @@ function ProjectCard({ title, description, tech, link }) {
           left: 0,
           height: "40px",
           width: "100%",
-          background: "linear-gradient(to left, rgba(74, 70, 70, 0.4), transparent)",
+          background: "linear-gradient(to left, rgba(38, 34, 34, 0.4), transparent)",
           display: "flex",
           alignItems: "center",
           justifyContent: "right",
           borderTopRightRadius: "12px",
           borderBottomRightRadius: "12px",
-          color: "#e4e4e4",
-          fontWeight: 600,
+          color: "#ffffff",
+          fontWeight: 800,
           textDecoration: "none",
           opacity: isHovered ? 0.4 : 0,
           transition: "opacity 0.3s ease",
@@ -132,7 +132,7 @@ function ProjectCard({ title, description, tech, link }) {
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        See more →
+        View Github Repo →
       </a>
     </div>
   );
