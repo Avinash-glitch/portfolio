@@ -27,8 +27,9 @@ const experience = [
     role: "Audio Software Developer",
     duration: "Sept 2022 - Sept 2023",
     details: `
-• Built virtual classical instruments using JUCE.
-• Implemented real-time synthesis with production-level DSP architecture.
+• Engineered physical modeling synthesis algorithms in C++ using JUCE for bow-stringed classical instruments, targeting stable, low-latency real-time audio performance.
+• Implemented advanced DSP techniques including circular buffering, fractional delay lines, interpolation, parameter smoothing, and non-linear mapping, with careful use of atomic variables and explicit memory management to maintain real-time safety.
+• Applied curve-fitting, envelope shaping, and time-varying control models to map bow pressure, bow velocity, and bow position to excitation and resonance parameters, significantly enhancing expressive realism and improving perceived sound quality by ~80%.
 `
   },
   {
@@ -37,9 +38,9 @@ const experience = [
     role: "Project Manager",
     duration: "Feb 2021 - July 2023",
     details: `
-• Managed UK-based clients.
-• Coordinated development sprints.
-• Maintained Jira workflows and tickets.
+• Managed end-to-end product delivery for UK-based pharmaceutical, food industry, and e-commerce clients, creating product specifications and coordinating cross-functional teams
+• Liaised with developers and designers to define workflows, user experience, and technical architecture, primarily using Node.js, HTML/CSS with Magento e-commerce platform
+• Delivered payment integrations (Stripe, PayPal) and ensured seamless feature delivery through stakeholder approval processes and iterative development cycles
 `
   },
   {
@@ -48,9 +49,9 @@ const experience = [
     role: "Algorithm Engineer Intern",
     duration: "Feb 2021 - July 2023",
     details: `
-• Managed UK-based clients.
-• Coordinated development sprints.
-• Maintained Jira workflows and tickets.
+•Designed and implemented an Event detection algorithm using Mel-Spectrograms and Machine learning (SVM, Random Forest, CNN, RNN) to identify and localize suspicious sounds (e.g., gunshots, glass shattering) in real-time.  
+•Integrated the system with a CCTV network, enabling automatic camera rotation toward detected sound sources, showcasing multimedia system integration and real-time processing capabilities.
+
 `
   },
 ];
