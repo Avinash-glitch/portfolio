@@ -4,18 +4,20 @@ import experience from "../data/experience";
 function Experience() {
   return (
     <section style={{ padding: "0px 0px" }}>
-      <h2 style={{ fontSize: "38px", marginBottom: "80px",marginTop: "100px", textAlign: "center" }}>
+      <h2 style={{ fontSize: "38px", marginBottom: "80px", marginTop: "100px", textAlign: "center" }}>
         Work Experience
       </h2>
-        <div 
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-            gap: "100px",
-            alignItems: "start"   // VERY IMPORTANT
-          }}
->       
-
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+          gap: "100px",
+          alignItems: "start",
+          justifyItems: "center",
+          maxWidth: "1200px",
+          margin: "0 auto",
+        }}
+      >
         {experience.map((exp) => (
           <ExperienceCard
             key={exp.id}

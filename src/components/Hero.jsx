@@ -1,9 +1,19 @@
+import { useEffect, useState } from "react";
 import profilePic from "../assets/profile.jpeg";
 
 // Make sure to import these fonts in index.html or via @import in CSS:
 // <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 function Hero() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth < 900);
+    onResize();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   return (
     <section
       style={{
@@ -12,18 +22,19 @@ function Hero() {
         alignItems: "center",
         justifyContent: "center",
         gap: "60px",
-        flexWrap: "wrap",
+        flexWrap: isMobile ? "wrap" : "nowrap",
       }}
     >
       {/* Left Content */}
-      <div style={{ maxWidth: "600px" }}>
+      <div style={{ maxWidth: "600px", minWidth: 0 }}>
         <h1
           style={{
-            fontSize: "60px",
+            fontSize: "46px",
             marginBottom: "16px",
             color: "var(--text-main)",
             fontFamily: "'Playfair Display', serif",
             fontWeight: 700,
+            whiteSpace: isMobile ? "normal" : "nowrap",
           }}
         >
           AVINASH KANNAN
@@ -63,8 +74,8 @@ function Hero() {
           src={profilePic}
           alt="Avikann"
           style={{
-            width: "500px",
-            height: "600px",
+            width: isMobile ? "min(92vw, 500px)" : "500px",
+            height: isMobile ? "auto" : "600px",
             objectFit: "cover",
             border: "40px #18273b transparent solid",
             boxShadow: "0 0 1000px rgba(62, 104, 171, 0.25)",

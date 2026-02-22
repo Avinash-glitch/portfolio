@@ -11,6 +11,7 @@ import labviewLogo from "../assets/labview.svg";
 import umlLogo from "../assets/uml.svg";
 import airtableLogo from "../assets/airtable.svg";
 import gitlabLogo from "../assets/gitlab.svg";
+import reactLogo from "../assets/react.svg";
 import { useEffect, useRef, useState } from "react";
 
 /* ─── DATA ─────────────────────────────────────────────────────────── */
@@ -20,34 +21,35 @@ const sections = [
     heading: "Technical Skills",
     items: [
       { id: 1,  name: "Python",            logo: pythonLogo,  level: 5 },
-      { id: 2,  name: "C/C++",             logo: cppLogo,     level: 4 },
-      { id: 3,  name: "Embedded C",        logo: null,        level: 4 },
-      { id: 4,  name: "C#",                logo: null,        level: 3 },
-      { id: 5,  name: "VHDL",              logo: null,        level: 3 },
-      { id: 6,  name: "SQL",               logo: SQLogo,      level: 4 },
-      { id: 7,  name: "Scala",             logo: scalaLogo,   level: 3 },
-      { id: 8,  name: "Signal Processing", logo: null,        level: 4 },
-      { id: 9,  name: "Machine Learning",  logo: null,        level: 4 },
-      { id: 10, name: "GitLab",            logo: gitlabLogo,  level: 5 },
+      { id: 2,  name: "GitLab",            logo: gitlabLogo,  level: 5 },
+      { id: 3,  name: "C/C++",             logo: cppLogo,     level: 4 },
+      { id: 4,  name: "Embedded C",        logo: null,        level: 4 },
+      { id: 5,  name: "SQL",               logo: SQLogo,      level: 4 },
+      { id: 6,  name: "Signal Processing", logo: null,        level: 4 },
+      { id: 7,  name: "Machine Learning",  logo: null,        level: 4 },
+      { id: 8,  name: "C#",                logo: null,        level: 3 },
+      { id: 9,  name: "VHDL",              logo: null,        level: 3 },
+      { id: 10, name: "Scala",             logo: scalaLogo,   level: 3 },
+      { id: 11, name: "React",             logo: reactLogo,   level: 3 },
     ],
   },
   {
     id: "softwares",
     heading: "Softwares & Frameworks",
     items: [
-      { id: 1,  name: "MATLAB",    logo: null,          level: 4 },
-      { id: 2,  name: "JUCE",      logo: juceLogo,      level: 5 },
-      { id: 3,  name: "Langchain", logo: langchainLogo, level: 4 },
-      { id: 4,  name: "Streamlit", logo: streamlitLogo, level: 4 },
-      { id: 5,  name: "Unity",     logo: null,          level: 3 },
-      { id: 6,  name: "Vivado",    logo: null,          level: 3 },
-      { id: 7,  name: "Arduino",   logo: arduinoLogo,   level: 4 },
-      { id: 8,  name: "Jira",      logo: jiraLogo,      level: 4 },
-      { id: 9,  name: "Tableau",   logo: null,          level: 3 },
-      { id: 10, name: "Ableton",   logo: null,          level: 5 },
-      { id: 11, name: "Labview",   logo: labviewLogo,   level: 5 },
-      { id: 12, name: "UML",       logo: umlLogo,       level: 5 },
-      { id: 13, name: "Airtable",  logo: airtableLogo,  level: 5 },
+      { id: 1,  name: "JUCE",      logo: juceLogo,      level: 5 },
+      { id: 2,  name: "Ableton",   logo: null,          level: 5 },
+      { id: 3,  name: "Labview",   logo: labviewLogo,   level: 5 },
+      { id: 4,  name: "UML",       logo: umlLogo,       level: 5 },
+      { id: 5,  name: "Airtable",  logo: airtableLogo,  level: 5 },
+      { id: 6,  name: "MATLAB",    logo: null,          level: 4 },
+      { id: 7,  name: "Langchain", logo: langchainLogo, level: 4 },
+      { id: 8,  name: "Streamlit", logo: streamlitLogo, level: 4 },
+      { id: 9,  name: "Arduino",   logo: arduinoLogo,   level: 4 },
+      { id: 10, name: "Jira",      logo: jiraLogo,      level: 4 },
+      { id: 11, name: "Unity",     logo: null,          level: 3 },
+      { id: 12, name: "Vivado",    logo: null,          level: 3 },
+      { id: 13, name: "Tableau",   logo: null,          level: 3 },
     ],
   },
   {
@@ -125,7 +127,18 @@ function SkillCard({ skill }) {
   }, []);
 
   return (
-    <div ref={ref} style={{ display: "flex", alignItems: "center", padding: "8px",justifyContent: "center", gap: 40 }}>
+    <div
+      ref={ref}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "min(100%, 640px)",
+        margin: "0 auto",
+        padding: "8px",
+        gap: 20,
+      }}
+    >
       {skill.logo ? (
         <img
           src={skill.logo}
@@ -143,7 +156,7 @@ function SkillCard({ skill }) {
           {skill.name.slice(0, 4).toUpperCase()}
         </div>
       )}
-      <span style={{ flex: 1, fontSize: 20 }}>{skill.name}</span>
+      <span style={{ width: 220, fontSize: 20, textAlign: "left" }}>{skill.name}</span>
       <SkillCircles level={skill.level} animate={inView} />
     </div>
   );
@@ -164,11 +177,12 @@ function CertCard({ cert, index }) {
     <div
       ref={ref}
       style={{
-        padding: "14px 18px",
+        width: "100%",
+        padding: "10px 14px",
         borderRadius: 10,
         background: "#836666",
         border: "1px solid var(--border)",
-        display: "flex", alignItems: "center", gap: 14,
+        display: "flex", alignItems: "center", gap: 10,
         opacity: inView ? 1 : 0,
         transform: inView ? "translateY(0)" : "translateY(16px)",
         transition: `opacity 0.4s ${index * 0.1}s, transform 0.4s ${index * 0.1}s`,
@@ -176,8 +190,8 @@ function CertCard({ cert, index }) {
     >
       <span style={{ fontSize: 22 }}>🏅</span>
       <div>
-        <div style={{ fontWeight: 600, fontSize: 14 }}>{cert.title}</div>
-        <div style={{ fontSize: 12, opacity: 0.6 }}>{cert.issuer}</div>
+        <div style={{ fontWeight: 600, fontSize: 13 }}>{cert.title}</div>
+        <div style={{ fontSize: 11, opacity: 0.6 }}>{cert.issuer}</div>
       </div>
     </div>
   );
@@ -245,19 +259,19 @@ function VerticalSectionTitle({ heading }) {
 function SectionBlock({ section }) {
   return (
     <div style={{ display: "flex", gap: 16, alignItems: "stretch", paddingBottom: 36 }}>
-      <div style={{ flex: 1 }}>
+      <div style={{ flex: 1, minWidth: 0 }}>
         {!section.isCerts && !section.isHobbies && (
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
             {section.items.map(skill => <SkillCard key={skill.id} skill={skill} />)}
           </div>
         )}
         {section.isCerts && (
-          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8, width: "min(100%, 500px)", margin: "0 auto" }}>
             {section.items.map((cert, i) => <CertCard key={cert.id} cert={cert} index={i} />)}
           </div>
         )}
         {section.isHobbies && (
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 10, justifyContent: "center", width: "min(100%, 640px)", margin: "0 auto" }}>
             {section.items.map((h, i) => <HobbyTag key={h.id} hobby={h} index={i} />)}
           </div>
         )}
@@ -315,13 +329,25 @@ export default function Skillset() {
   const contentRef = useRef(null);
 
   return (
-    <section style={{ display: "flex", gap: 12, paddingTop: 200 }}>
-      <SkillsTracker contentRef={contentRef} />
-      <div style={{ width: 1, background: "var(--border)", alignSelf: "stretch" }} />
-      <div ref={contentRef} style={{ flex: 1 }}>
-        {sections.map(section => (
-          <SectionBlock key={section.id} section={section} />
-        ))}
+    <section style={{ paddingTop: 200 }}>
+      <h2
+        style={{
+          fontSize: "38px",
+          marginBottom: "48px",
+          textAlign: "center",
+        }}
+      >
+        My Skill Stack
+      </h2>
+
+      <div style={{ display: "flex", gap: 12, justifyContent: "center" }}>
+        <SkillsTracker contentRef={contentRef} />
+        <div style={{ width: 1, background: "var(--border)", alignSelf: "stretch" }} />
+        <div ref={contentRef} style={{ flex: "0 1 820px", minWidth: 0 }}>
+          {sections.map(section => (
+            <SectionBlock key={section.id} section={section} />
+          ))}
+        </div>
       </div>
     </section>
   );

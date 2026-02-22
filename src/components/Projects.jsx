@@ -1,17 +1,24 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import ProjectCard from "./ProjectCard";
 
 function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [startX, setStartX] = useState(null);
+  const lastWheelAtRef = useRef(0);
   const minSwipeDistance = 50;
   const projects = [
     {
-      title: "Multi-band Compression with AI guidance",
+      title: "Multi-band Compresser in JUCE",
       description: "Built a Multi-band compressor using Linkwitz-Riley filters...",
       tech: ["cpp", "juce"],
       link: 'https://github.com/Avinash-glitch/multiBandCompressor_Mixer'
+    },
+    {
+      title: "Shift Sense",
+      description: "A tool build on streamlit to automate shift assignments",
+      tech: ["HTML", "streamlit", "python"],
+      link: 'https://github.com/Avinash-glitch/shiftSense'
     },
     {
       title: "TikTok AI Blog Creator",
@@ -22,15 +29,12 @@ function Projects() {
       title: "Embedded Foot Pressure Monitor",
       description: "Developed a sensor-based monitoring system...",
       tech: ["arduino", "python"],
-    },
-    {
-      title: "Multi-band Compression plugin with AI guidance in juce",
-      description: "Built a Multi-band compressor using Linkwitz-Riley filters...",
-      tech: ["cpp", "juce", "python"],
-    },
+    }
+   
   ];
 
   const total = projects.length;
+  const sideCardOffset = 280;
 
   const rotate = (direction) => {
     if (direction === "left") {
@@ -40,18 +44,29 @@ function Projects() {
     }
   };
   const onWheel = (e) => {
-  e.preventDefault();
-  if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
-    if (e.deltaX > 20) rotate("right");
-    else if (e.deltaX < -20) rotate("left");
-  }
+    const now = Date.now();
+    const primaryDelta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : 0;
+    const isHorizontalIntent =
+      Math.abs(e.deltaX) > Math.abs(e.deltaY) * 1.2 ||
+      (e.shiftKey && Math.abs(e.deltaY) > 20);
+
+    if (!isHorizontalIntent) return;
+    if (now - lastWheelAtRef.current < 280) return;
+
+    const delta = primaryDelta !== 0 ? primaryDelta : e.deltaY;
+    if (Math.abs(delta) < 20) return;
+
+    e.preventDefault();
+    lastWheelAtRef.current = now;
+    if (delta > 0) rotate("right");
+    else rotate("left");
   };
   const onPointerDown = (e) => {
   setStartX(e.clientX);
     };
 
   const onPointerUp = (e) => {
-    if (!startX) return;
+    if (startX === null) return;
 
     const distance = startX - e.clientX;
 
@@ -74,21 +89,6 @@ function Projects() {
         Featured Projects
       </h2>
 
-      {/* Arrows */}
-      {/* <button
-        onClick={() => rotate("left")}
-        style={arrowStyle("left", isHovered)}
-      >
-        ◀
-      </button>
-
-      <button
-        onClick={() => rotate("right")}
-        style={arrowStyle("right", isHovered)}
-      >
-        ▶
-      </button> */}
-
       {/* Carousel */}
       <div
           onPointerDown={onPointerDown}
@@ -103,6 +103,7 @@ function Projects() {
             perspective: "1000px",
             userSelect: "none",
             touchAction: "pan-y",
+            overflow: "visible",
           }}
         >
 
@@ -120,11 +121,11 @@ function Projects() {
                   position: "absolute",
                   transition: "all 0.5s ease",
                   transform: `
-                    translateX(${offset * 320}px)
+                    translateX(${offset * sideCardOffset}px)
                     scale(${Math.abs(offset) === 0 ? 1 : 0.8})
                     rotateY(${offset * -30}deg)
                   `,
-                  opacity: Math.abs(offset) > 1 ? 0 : Math.abs(offset) === 0 ? 1 : 0.5,
+                  opacity: Math.abs(offset) > 1 ? 0 : Math.abs(offset) === 0 ? 1 : 0.65,
                   zIndex: total - Math.abs(offset),
                   pointerEvents: Math.abs(offset) > 1 ? "none" : "auto",
                 }}

@@ -5,6 +5,7 @@ import streamlitLogo from "../assets/streamlit.svg";
 import juceLogo from "../assets/juce.svg";
 import langchainLogo from "../assets/langchain.svg";
 import arduinoLogo from "../assets/arduino.svg";
+import htmlLogo from "../assets/html5.svg";
 // import matlabLogo from "../assets/matlab.svg";
 // import abletonLogo from "../assets/ableton.svg";
 
@@ -18,6 +19,7 @@ const techLogos = {
   // matlab: matlabLogo,
   // ableton: abletonLogo,
   langchain: langchainLogo,
+  HTML:htmlLogo
 };
 
 function ProjectCard({ title, description, tech, link }) {
