@@ -31,14 +31,6 @@ The lock operates using toggle switches and push buttons on the FPGA development
 The system provides user feedback through display messages such as LOCK, UNLOCK, SET PIN, CHANGE PIN, RESET, ERROR, and SUCCESS. These messages guide the user through the interaction process and indicate the system’s current state.`,
       screenshot:combinationLockWorkflow,
   },
-  {
-    id: "wf-4",
-    title: "Lead Routing System",
-    link: "https://example.com/lead-routing",
-    description: "Distributes incoming leads to reps based on territory and load.",
-    screenshot:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-  },
 
 ];
 
