@@ -134,7 +134,7 @@ function ProjectCard({ title, description, tech, link }) {
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        View Github Repo →
+         Go to Github →
       </a>
     </div>
   );

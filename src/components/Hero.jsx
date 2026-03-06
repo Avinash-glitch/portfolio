@@ -16,6 +16,7 @@ function Hero() {
 
   return (
     <section
+      id="hero"
       style={{
         padding: "100px 20px",
         display: "flex",

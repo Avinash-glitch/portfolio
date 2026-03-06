@@ -21,20 +21,23 @@ function Projects() {
       link: 'https://github.com/Avinash-glitch/shiftSense'
     },
     {
-      title: "TikTok AI Blog Creator",
-      description: "Designed an AI pipeline to automate editing...",
-      tech: ["python", "streamlit", "langchain"],
+      title: "Embedded Foot Pressure Monitor",
+      description: "Built an embedded foot-pressure monitoring system using a 64-sensor FSR array with dual Arduino Mega 2560 controllers and Python-based data handling.",
+      tech: ["arduino", "python"],
+      link: "https://github.com/Avinash-glitch/Array-sensor-using-Arduino-mega-2560.git",
     },
     {
-      title: "Embedded Foot Pressure Monitor",
-      description: "Developed a sensor-based monitoring system...",
-      tech: ["arduino", "python"],
-    }
+      title: "Battleships (Tkinter)",
+      description: "Developed a Battleships game in Python using Tkinter with turn-based gameplay and interactive grid controls.",
+      tech: ["python"],
+      link: "https://github.com/Avinash-glitch/Battleships.git",
+    },
    
   ];
 
   const total = projects.length;
-  const sideCardOffset = 280;
+  const isMobile = typeof window !== "undefined" ? window.innerWidth < 720 : false;
+  const sideCardOffset = isMobile ? 180 : 280;
 
   const rotate = (direction) => {
     if (direction === "left") {
@@ -80,7 +83,7 @@ function Projects() {
   };
 
   return (
-    <section style={{ marginTop: "80px" }}
+    <section id="projects" style={{ marginTop: "80px" }}
     
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -96,7 +99,7 @@ function Projects() {
           onWheel={onWheel}
           style={{
             position: "relative",
-            height: "300px",
+            height: isMobile ? "260px" : "300px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -177,3 +180,4 @@ const arrowStyle = (position, isHovered) => ({
 });
 
 export default Projects;
+

@@ -20,8 +20,13 @@ const experience = [
     role: "Research Assistant",
     duration: "Nov 2023 - March 2024",
     details: `
-• Developed real-time speech enhancement pipelines.
-• Optimized DSP systems for low-latency ML inference.
+  Architected a distributed embedded sensing system using dual Arduino Mega 2560 microcontrollers in a master–slave configuration to synchronously acquire and process data from a 64-sensor FSR pressure array.
+
+Designed a deterministic I2C-based inter-board communication framework and developed a Python data pipeline for real-time frame reconstruction, nonlinear resistance-to-pressure calibration, and dynamic pressure map visualisation.
+
+Implemented signal smoothing and anomaly detection algorithms to identify sustained pressure asymmetry patterns associated with early Charcot pathology.
+
+Collaborated with clinical and academic teams to translate sensor outputs into medically interpretable metrics, contributing to an ongoing research paper documenting system architecture, calibration methodology, and preliminary findings.
 `
   },
   {
@@ -55,6 +60,19 @@ const experience = [
 •Designed and implemented an Event detection algorithm using Mel-Spectrograms and Machine learning (SVM, Random Forest, CNN, RNN) to identify and localize suspicious sounds (e.g., gunshots, glass shattering) in real-time.  
 •Integrated the system with a CCTV network, enabling automatic camera rotation toward detected sound sources, showcasing multimedia system integration and real-time processing capabilities.
 
+`
+  },
+  {
+    id: 6,
+    company: "Reliance Industries Limited",
+    role: "Research Development Electronic Engineer Intern",
+    duration: "Jun 2018 - Dec 2018",
+    details: `
+-> Worked on SMART NB-IoT devices by configuring the BC95 module (with inbuilt PIC microcontroller) connected to different sensors based on use case requirements.
+
+-> Programmed the microcontroller in Embedded C to trigger interrupts, send specific AT commands, and publish sensor readings to the platform using MQTT protocol.
+
+-> Conducted repeated test runs and validation cycles to ensure accurate, consistent sensor data delivery from device to platform and onward to the mobile application.
 `
   },
 ];

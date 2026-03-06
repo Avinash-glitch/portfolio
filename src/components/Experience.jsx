@@ -3,7 +3,7 @@ import experience from "../data/experience";
 
 function Experience() {
   return (
-    <section style={{ padding: "0px 0px" }}>
+    <section id="experience" style={{ padding: "0px 0px" }}>
       <h2 style={{ fontSize: "38px", marginBottom: "80px", marginTop: "100px", textAlign: "center" }}>
         Work Experience
       </h2>
@@ -33,3 +33,4 @@ function Experience() {
 }
 
 export default Experience;
+

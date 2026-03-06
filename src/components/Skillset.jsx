@@ -113,7 +113,7 @@ function SkillCircles({ level, animate }) {
 }
 
 /* ─── SKILL CARD ─────────────────────────────────────────────────────── */
-function SkillCard({ skill }) {
+function SkillCard({ skill, isMobile }) {
   const ref = useRef(null);
   const [inView, setInView] = useState(false);
 
@@ -135,20 +135,25 @@ function SkillCard({ skill }) {
         justifyContent: "center",
         width: "min(100%, 640px)",
         margin: "0 auto",
-        padding: "8px",
-        gap: 20,
+        padding: isMobile ? "8px 4px" : "8px",
+        gap: isMobile ? 10 : 20,
       }}
     >
       {skill.logo ? (
         <img
           src={skill.logo}
           alt={skill.name}
-          style={{ width: 28, height: 28, objectFit: "contain", filter: "invert(1)" }}
+          style={{
+            width: isMobile ? 22 : 28,
+            height: isMobile ? 22 : 28,
+            objectFit: "contain",
+            filter: "invert(1)",
+          }}
           onError={e => { e.target.style.display = "none"; }}
         />
       ) : (
         <div style={{
-          width: 28, height: 28, borderRadius: 6,
+          width: isMobile ? 22 : 28, height: isMobile ? 22 : 28, borderRadius: 6,
           background: "#fa5d5d",
           display: "flex", alignItems: "center", justifyContent: "center",
           fontSize: 9, fontWeight: 700, color: "#1c1a1a", letterSpacing: 0.5,
@@ -156,7 +161,16 @@ function SkillCard({ skill }) {
           {skill.name.slice(0, 4).toUpperCase()}
         </div>
       )}
-      <span style={{ width: 220, fontSize: 20, textAlign: "left" }}>{skill.name}</span>
+      <span
+        style={{
+          width: isMobile ? "45%" : 220,
+          fontSize: isMobile ? 16 : 20,
+          textAlign: "left",
+          lineHeight: 1.3,
+        }}
+      >
+        {skill.name}
+      </span>
       <SkillCircles level={skill.level} animate={inView} />
     </div>
   );
@@ -256,13 +270,21 @@ function VerticalSectionTitle({ heading }) {
 }
 
 /* ─── SECTION BLOCK ──────────────────────────────────────────────────── */
-function SectionBlock({ section }) {
+function SectionBlock({ section, isMobile }) {
   return (
-    <div style={{ display: "flex", gap: 16, alignItems: "stretch", paddingBottom: 36 }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: isMobile ? "column" : "row",
+        gap: 16,
+        alignItems: "stretch",
+        paddingBottom: isMobile ? 24 : 36,
+      }}
+    >
       <div style={{ flex: 1, minWidth: 0 }}>
         {!section.isCerts && !section.isHobbies && (
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-            {section.items.map(skill => <SkillCard key={skill.id} skill={skill} />)}
+            {section.items.map(skill => <SkillCard key={skill.id} skill={skill} isMobile={isMobile} />)}
           </div>
         )}
         {section.isCerts && (
@@ -276,7 +298,7 @@ function SectionBlock({ section }) {
           </div>
         )}
       </div>
-      <VerticalSectionTitle heading={section.heading} />
+      {!isMobile && <VerticalSectionTitle heading={section.heading} />}
     </div>
   );
 }
@@ -327,12 +349,20 @@ function SkillsTracker({ contentRef }) {
 /* ─── ROOT ───────────────────────────────────────────────────────────── */
 export default function Skillset() {
   const contentRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth < 900);
+    onResize();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
 
   return (
-    <section style={{ paddingTop: 200 }}>
+    <section id="skills" style={{ paddingTop: isMobile ? 120 : 200 }}>
       <h2
         style={{
-          fontSize: "38px",
+          fontSize: isMobile ? "30px" : "38px",
           marginBottom: "48px",
           textAlign: "center",
         }}
@@ -340,15 +370,23 @@ export default function Skillset() {
         My Skill Stack
       </h2>
 
-      <div style={{ display: "flex", gap: 12, justifyContent: "center" }}>
-        <SkillsTracker contentRef={contentRef} />
-        <div style={{ width: 1, background: "var(--border)", alignSelf: "stretch" }} />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: isMobile ? "column" : "row",
+          gap: 12,
+          justifyContent: "center",
+        }}
+      >
+        {!isMobile && <SkillsTracker contentRef={contentRef} />}
+        {!isMobile && <div style={{ width: 1, background: "var(--border)", alignSelf: "stretch" }} />}
         <div ref={contentRef} style={{ flex: "0 1 820px", minWidth: 0 }}>
           {sections.map(section => (
-            <SectionBlock key={section.id} section={section} />
+            <SectionBlock key={section.id} section={section} isMobile={isMobile} />
           ))}
         </div>
       </div>
     </section>
   );
 }
+

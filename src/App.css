@@ -5,6 +5,12 @@
   padding: clamp(12px, 3vw, 28px);
 }
 
+@media (max-width: 860px) {
+  #root {
+    padding: 12px 12px 86px;
+  }
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
