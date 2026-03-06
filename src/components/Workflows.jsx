@@ -1,7 +1,7 @@
 import "./Workflows.css";
 import { useEffect, useRef, useState } from "react";
 import auditSoftwareWorkflow from "../assets/Energie audit software workflow.png";
-import bibleNotesWorkflow from "../assets/features.png";
+import bibleNotesWorkflow from "../assets/Features.png";
 import combinationLockWorkflow from "../assets/combination_lock.png";
 const workflows = [
   {
