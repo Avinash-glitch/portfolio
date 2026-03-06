@@ -244,19 +244,19 @@ function HobbyTag({ hobby, index }) {
 }
 
 /* ─── VERTICAL SECTION TITLE ─────────────────────────────────────────── */
-function VerticalSectionTitle({ heading }) {
+function VerticalSectionTitle({ heading, isMobile }) {
   return (
     <div
       style={{
         writingMode: "vertical-rl",
         textOrientation: "mixed",
         transform: "rotate(180deg)",
-        fontSize: 20,
+        fontSize: isMobile ? 13 : 20,
         fontWeight: 700,
-        letterSpacing: "0.18em",
+        letterSpacing: isMobile ? "0.1em" : "0.18em",
         textTransform: "uppercase",
         color: "#6ab1b37b",
-        opacity: 0.55,
+        opacity: isMobile ? 0.4 : 0.55,
         userSelect: "none",
         whiteSpace: "nowrap",
         alignSelf: "stretch",
@@ -275,8 +275,8 @@ function SectionBlock({ section, isMobile }) {
     <div
       style={{
         display: "flex",
-        flexDirection: isMobile ? "column" : "row",
-        gap: 16,
+        flexDirection: "row",
+        gap: isMobile ? 10 : 16,
         alignItems: "stretch",
         paddingBottom: isMobile ? 24 : 36,
       }}
@@ -298,13 +298,13 @@ function SectionBlock({ section, isMobile }) {
           </div>
         )}
       </div>
-      {!isMobile && <VerticalSectionTitle heading={section.heading} />}
+      <VerticalSectionTitle heading={section.heading} isMobile={isMobile} />
     </div>
   );
 }
 
 /* ─── VERTICAL SKILLS TRACKER ────────────────────────────────────────── */
-function SkillsTracker({ contentRef }) {
+function SkillsTracker({ contentRef, isMobile }) {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -327,13 +327,18 @@ function SkillsTracker({ contentRef }) {
   return (
     <div style={{
       display: "flex", flexDirection: "column", alignItems: "center",
-      gap: 2, position: "sticky", top: "30vh", height: "fit-content",
+      gap: isMobile ? 1 : 2,
+      position: "sticky",
+      top: isMobile ? "22vh" : "30vh",
+      height: "fit-content",
     }}>
       {LETTERS.map((letter, i) => (
         <span
           key={i}
           style={{
-            fontSize: 35, fontWeight: 800, letterSpacing: "0.1em",
+            fontSize: isMobile ? 18 : 35,
+            fontWeight: 800,
+            letterSpacing: "0.1em",
             color: i < litCount ? "#ff4848" : "#ecc5c5",
             transition: "color 0.3s",
             userSelect: "none",
@@ -373,13 +378,13 @@ export default function Skillset() {
       <div
         style={{
           display: "flex",
-          flexDirection: isMobile ? "column" : "row",
-          gap: 12,
+          flexDirection: "row",
+          gap: isMobile ? 8 : 12,
           justifyContent: "center",
         }}
       >
-        {!isMobile && <SkillsTracker contentRef={contentRef} />}
-        {!isMobile && <div style={{ width: 1, background: "var(--border)", alignSelf: "stretch" }} />}
+        <SkillsTracker contentRef={contentRef} isMobile={isMobile} />
+        <div style={{ width: 1, background: "var(--border)", alignSelf: "stretch", opacity: isMobile ? 0.55 : 1 }} />
         <div ref={contentRef} style={{ flex: "0 1 820px", minWidth: 0 }}>
           {sections.map(section => (
             <SectionBlock key={section.id} section={section} isMobile={isMobile} />

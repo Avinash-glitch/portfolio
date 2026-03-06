@@ -68,7 +68,7 @@ function Workflows() {
 
   return (
     <section id="workflows" style={{ marginTop: "80px" }}>
-      <h2 style={{ textAlign: "center", fontSize: "38px", marginBottom: "12px" }}>
+      <h2 style={{ textAlign: "center", fontSize: "38px", marginBottom: "60px" }}>
         Workflows
       </h2>
       <div className="workflow-masonry">
