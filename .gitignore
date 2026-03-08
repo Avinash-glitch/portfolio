@@ -23,3 +23,14 @@ dist-ssr
 *.sln
 *.sw?
 venv/
+__pycache__/
+
+# Local YouTube pipeline artifacts (kept separate from portfolio app)
+youtube_pipeline.py
+requirements-youtube-pipeline.txt
+generated_scenes/
+stable-diffusion-webui/
+scene.jpeg
+test.wav
+voice.wav
+video.mp4

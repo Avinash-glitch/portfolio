@@ -14,34 +14,3 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-
-## YouTube Pipeline (Python)
-
-This repo now includes `youtube_pipeline.py` for an automated test pipeline:
-
-`Topic -> Research -> Script -> Image -> Voice -> Video`
-
-### Install Python deps
-
-```bash
-pip install -r requirements-youtube-pipeline.txt
-```
-
-### External tools required
-
-- Ollama running on `http://127.0.0.1:11434`
-- Automatic1111 running on `http://127.0.0.1:7860`
-- `piper` available in PATH
-- `ffmpeg` available in PATH
-
-### Run
-
-```bash
-python youtube_pipeline.py
-```
-
-### Useful options
-
-```bash
-python youtube_pipeline.py --topic "latest AI agents" --model llama3.1
-```
