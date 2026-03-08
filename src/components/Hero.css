@@ -1,0 +1,64 @@
+.hero-contact-icons {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-contact-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  border: none;
+  background: transparent;
+  padding: 0;
+  text-decoration: none;
+  box-shadow: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hero-contact-icon {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) saturate(100%) invert(1);
+  transition: filter 180ms ease, transform 180ms ease;
+}
+
+.hero-contact-link:hover .hero-contact-icon {
+  filter: brightness(0) saturate(100%) invert(82%);
+  transform: scale(1.08);
+}
+
+.hero-contact-link::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 8px);
+  transform: translateX(-50%);
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+  color: #e8f5df;
+  background: rgba(12, 16, 22, 0.95);
+  border: 1px solid rgba(112, 189, 65, 0.45);
+  border-radius: 8px;
+  padding: 6px 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+}
+
+.hero-contact-link:hover::after {
+  opacity: 1;
+}
+
+@media (max-width: 860px) {
+  .hero-contact-icon {
+    width: 32px;
+    height: 32px;
+  }
+}

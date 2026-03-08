@@ -1,5 +1,10 @@
 import { useEffect, useState } from "react";
 import profilePic from "../assets/profile.jpeg";
+import phoneIcon from "../assets/linphone.svg";
+import gmailIcon from "../assets/gmail.svg";
+import githubIcon from "../assets/github.svg";
+import linkedinIcon from "../assets/linkedin.svg";
+import "./Hero.css";
 
 // Make sure to import these fonts in index.html or via @import in CSS:
 // <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -67,6 +72,47 @@ function Hero() {
           that make people just a little lazier by turning complex systems into
           simple, intuitive experiences.
         </p>
+
+        <div
+          className="hero-contact-icons"
+        >
+          <a
+            href="tel:+447767926439"
+            aria-label="Call phone number"
+            className="hero-contact-link"
+            data-tooltip="Call: +44 7767926439"
+          >
+            <img src={phoneIcon} alt="Phone" className="hero-contact-icon" />
+          </a>
+          <a
+            href="mailto:Kannan.avinash.ak@gmail.com"
+            aria-label="Send email"
+            className="hero-contact-link"
+            data-tooltip="Email: Kannan.avinash.ak@gmail.com"
+          >
+            <img src={gmailIcon} alt="Email" className="hero-contact-icon" />
+          </a>
+          <a
+            href="https://github.com/Avinash-glitch"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Open GitHub profile"
+            className="hero-contact-link"
+            data-tooltip="GitHub: Avinash-glitch"
+          >
+            <img src={githubIcon} alt="GitHub" className="hero-contact-icon" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/avinash-kannan/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Open LinkedIn profile"
+            className="hero-contact-link"
+            data-tooltip="LinkedIn: avinash-kannan"
+          >
+            <img src={linkedinIcon} alt="LinkedIn" className="hero-contact-icon" />
+          </a>
+        </div>
       </div>
 
       {/* Profile Image */}

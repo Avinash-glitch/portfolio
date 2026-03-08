@@ -48,17 +48,17 @@
   .section-nav {
     top: auto;
     bottom: calc(10px + env(safe-area-inset-bottom));
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
+    left: max(6px, env(safe-area-inset-left));
+    right: max(6px, env(safe-area-inset-right));
+    transform: none;
     flex-direction: row;
     gap: clamp(4px, 2vw, 10px);
     min-height: auto;
     justify-content: center;
     align-items: center;
     padding: 8px;
-    width: calc(100vw - 12px);
-    max-width: 560px;
+    width: auto;
+    max-width: none;
     overflow-x: hidden;
   }
 
