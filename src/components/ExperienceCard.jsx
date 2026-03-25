@@ -9,7 +9,7 @@ function ExperienceCard({ company, role, duration, details }) {
     .split("\n")
     .map((line) => line.trim())
     .filter(Boolean)
-    .map((line) => line.replace(/^(->|�|•)\s*/, ""));
+    .map((line) => line.replace(/^(->|�|•)\s*/, ""));
 
   return (
     <div
@@ -43,7 +43,7 @@ function ExperienceCard({ company, role, duration, details }) {
             flexDirection: "column",
             justifyContent: "center",
             backfaceVisibility: "hidden",
-            backgroundColor: "#464646",
+            backgroundColor: "#1e2d40",
             padding: "20px",
             borderRadius: "20px",
           }}
@@ -63,7 +63,7 @@ function ExperienceCard({ company, role, duration, details }) {
             alignItems: "stretch",
             justifyContent: "center",
             backfaceVisibility: "hidden",
-            backgroundColor: "#878241",
+            backgroundColor: "#162030",
             padding: "20px",
             borderRadius: "20px",
             top: 0,

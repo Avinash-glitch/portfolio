@@ -1,26 +1,18 @@
 import { useState } from "react";
-import pythonLogo from "../assets/python.svg";
-import cppLogo from "../assets/cplusplus.svg";
-import streamlitLogo from "../assets/streamlit.svg";
-import juceLogo from "../assets/juce.svg";
-import langchainLogo from "../assets/langchain.svg";
-import arduinoLogo from "../assets/arduino.svg";
-import htmlLogo from "../assets/html5.svg";
-// import matlabLogo from "../assets/matlab.svg";
-// import abletonLogo from "../assets/ableton.svg";
 
-const techLogos = {
-  python: pythonLogo,
-  cpp: cppLogo,
-  streamlit: streamlitLogo,
-  juce: juceLogo,
-  arduino: arduinoLogo,
-  // gitkraken: gitkrakenLogo,
-  // matlab: matlabLogo,
-  // ableton: abletonLogo,
-  langchain: langchainLogo,
-  HTML:htmlLogo
-};
+const FolderIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#f0c674" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+  </svg>
+);
+
+const ExternalLinkIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+    <polyline points="15 3 21 3 21 9"/>
+    <line x1="10" y1="14" x2="21" y2="3"/>
+  </svg>
+);
 
 function ProjectCard({ title, description, tech, link }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -30,112 +22,97 @@ function ProjectCard({ title, description, tech, link }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{
-        position: "relative",
-        borderRadius: "12px",
-        overflow: "hidden",
-        transition: "all 0.3s ease",
-        backgroundColor: isHovered ? "#408537" : "#35445b",
-        color: "#cbd5e1",
+        backgroundColor: "#1e2d40",
+        borderRadius: "8px",
+        padding: "24px 24px 20px",
+        display: "flex",
+        flexDirection: "column",
+        border: "1px solid rgba(255,255,255,0.08)",
+        transition: "transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease",
+        transform: isHovered ? "translateY(-7px)" : "translateY(0)",
         boxShadow: isHovered
-          ? "0 12px 30px rgba(0,0,0,0.3)"
-          : "0 4px 8px rgba(167, 103, 103, 0.1)",
-        cursor: "pointer",
-        minHeight: "200px",
-        maxHeight: "200px",
-        minWidth: "300px",
-        maxWidth: "300px",
-        padding: "20px",
+          ? "0 24px 48px rgba(0,0,0,0.45)"
+          : "0 4px 16px rgba(0,0,0,0.25)",
+        borderColor: isHovered ? "rgba(100,181,246,0.3)" : "rgba(255,255,255,0.08)",
+        cursor: "default",
+        width: "260px",
+        minHeight: "250px",
       }}
     >
+      {/* Top row: folder + link */}
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "24px" }}>
+        <FolderIcon />
+        {link && (
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: isHovered ? "#64b5f6" : "#5a6a82",
+              transition: "color 0.2s ease",
+              display: "flex",
+              padding: "4px",
+            }}
+            onClick={(e) => e.stopPropagation()}
+            aria-label={`View ${title} on GitHub`}
+          >
+            <ExternalLinkIcon />
+          </a>
+        )}
+      </div>
+
       {/* Title */}
       <h3
         style={{
-          fontSize: "18px",
-          marginBottom: "10px",
-          fontWeight: 700,
-          color: isHovered ? "#362c4b" : "#e2e8f0",
+          margin: "0 0 12px",
+          fontSize: "19px",
+          fontWeight: 600,
+          color: isHovered ? "#64b5f6" : "#ccd6f6",
+          transition: "color 0.2s ease",
+          lineHeight: 1.3,
+          fontFamily: "'Inter', sans-serif",
         }}
       >
         {title}
       </h3>
 
-      {/* Description with highlighted text */}
-      <p style={{ marginBottom: "10px", lineHeight: 1.5, fontSize: "14px" }}>
-        {description.split("**").map((part, i) =>
-          i % 2 === 1 ? (
-            <span
-              key={i}
-              style={{
-                fontWeight: "700",
-                color: isHovered ? "#ffe4b5" : "#fbbf24",
-              }}
-            >
-              {part}
-            </span>
-          ) : (
-            <span key={i}>{part}</span>
-          )
-        )}
+      {/* Description */}
+      <p
+        style={{
+          margin: 0,
+          fontSize: "14px",
+          lineHeight: 1.65,
+          color: "#7a8ba5",
+          flex: 1,
+          fontFamily: "'Inter', sans-serif",
+        }}
+      >
+        {description}
       </p>
 
-      {/* Tech */}
+      {/* Tech tags */}
       <div
-          style={{
-            display: "flex",
-            gap: "20px",
-            justifyContent: "center",  
-            marginTop: "30px",
-            alignItems: "center",
-            flexWrap: "wrap",
-          }}
-        >
-          {tech.map((item, index) => (
-            <img
-              key={index}
-              src={techLogos[item]}
-              alt={item}
-              style={{
-  
-                width: "30px",
-                height: "30px",
-                filter: isHovered ? "invert(1)" : "invert(0)",
-                transition: "all 0.3s ease",
-              }}
-            />
-          ))}
-      </div>
-
-
-      {/* Transparent "See More" overlay panel */}
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
         style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          height: "40px",
-          width: "100%",
-          background: "linear-gradient(to left, rgba(38, 34, 34, 0.4), transparent)",
           display: "flex",
-          alignItems: "center",
-          justifyContent: "right",
-          borderTopRightRadius: "12px",
-          borderBottomRightRadius: "12px",
-          color: "#ffffff",
-          fontWeight: 800,
-          textDecoration: "none",
-          opacity: isHovered ? 0.4 : 0,
-          transition: "opacity 0.3s ease",
-          fontSize: "11px",
-          letterSpacing: "0.25px",
-          fontFamily: "'Poppins', sans-serif",
+          flexWrap: "wrap",
+          gap: "14px",
+          marginTop: "24px",
         }}
-        onClick={(e) => e.stopPropagation()}
       >
-         Go to Github →
-      </a>
+        {tech.map((item, i) => (
+          <span
+            key={i}
+            style={{
+              fontFamily: "'Poppins', monospace",
+              fontSize: "12px",
+              color: "#5a7a9a",
+              letterSpacing: "0.5px",
+            }}
+          >
+            {item}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }

@@ -13,7 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   --bg-main: #242424;        /* light graphite */
-  --card-bg: #999232;
+  --card-bg: #1e2d40;
   --backside-bg: #334155;     /* dark graphite */
   --border-color: #202c3a;
   --text-main: #dddddd;
@@ -91,8 +91,8 @@ button:focus-visible {
 
 .experience-card-back:hover {
   transform: translateY(-4px) scale(1.01);
-  border-color: var(--accent);
-  box-shadow: 0 0 20px rgba(120, 123, 129, 0.2);
+  border-color: rgba(100, 181, 246, 0.3);
+  box-shadow: 0 0 20px rgba(100, 181, 246, 0.1);
 }
 
 @media (prefers-color-scheme: light) {

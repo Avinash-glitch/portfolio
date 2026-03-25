@@ -1,8 +1,57 @@
+/* ─── Hero section ──────────────────────────────────── */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 20px;
+  max-width: 860px;
+}
+
+/* ─── Greeting ──────────────────────────────────────── */
+.hero-greeting {
+  margin: 0 0 20px;
+  font-family: monospace;
+  font-size: 15px;
+  color: #f0c674;
+  letter-spacing: 1px;
+}
+
+/* ─── Name ──────────────────────────────────────────── */
+.hero-name {
+  margin: 0 0 8px;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(40px, 7vw, 68px);
+  font-weight: 800;
+  color: #ccd6f6;
+  line-height: 1.1;
+}
+
+/* ─── Tagline ───────────────────────────────────────── */
+.hero-tagline {
+  margin: 0 0 24px;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(32px, 5.5vw, 56px);
+  font-weight: 700;
+  color: #5a7a9a;
+  line-height: 1.15;
+}
+
+/* ─── Bio ───────────────────────────────────────────── */
+.hero-bio {
+  margin: 0 0 32px;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #8892b0;
+  max-width: 520px;
+}
+
+/* ─── Contact icons ─────────────────────────────────── */
 .hero-contact-icons {
-  margin-top: 20px;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 18px;
 }
 
 .hero-contact-link {
@@ -10,43 +59,41 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: auto;
-  height: auto;
   border: none;
   background: transparent;
   padding: 0;
   text-decoration: none;
-  box-shadow: none;
-  outline: none;
   -webkit-tap-highlight-color: transparent;
 }
 
 .hero-contact-icon {
-  width: 30px;
-  height: 30px;
-  filter: brightness(0) saturate(100%) invert(1);
-  transition: filter 180ms ease, transform 180ms ease;
+  width: 22px;
+  height: 22px;
+  filter: brightness(0) saturate(100%) invert(55%) sepia(10%) saturate(500%) hue-rotate(180deg);
+  transition: filter 200ms ease, transform 200ms ease;
 }
 
 .hero-contact-link:hover .hero-contact-icon {
-  filter: brightness(0) saturate(100%) invert(82%);
-  transform: scale(1.08);
+  filter: brightness(0) saturate(100%) invert(70%) sepia(30%) saturate(600%) hue-rotate(180deg);
+  transform: translateY(-2px);
 }
 
+/* Tooltip */
 .hero-contact-link::after {
   content: attr(data-tooltip);
   position: absolute;
   left: 50%;
-  bottom: calc(100% + 8px);
+  bottom: calc(100% + 10px);
   transform: translateX(-50%);
-  font-size: 12px;
+  font-family: monospace;
+  font-size: 11px;
   line-height: 1;
   white-space: nowrap;
-  color: #e8f5df;
+  color: #ccd6f6;
   background: rgba(12, 16, 22, 0.95);
-  border: 1px solid rgba(112, 189, 65, 0.45);
-  border-radius: 8px;
-  padding: 6px 8px;
+  border: 1px solid rgba(240, 198, 116, 0.25);
+  border-radius: 4px;
+  padding: 6px 10px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 160ms ease;
@@ -56,9 +103,19 @@
   opacity: 1;
 }
 
-@media (max-width: 860px) {
+/* ─── Mobile ────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .hero {
+    padding: 0 16px;
+    min-height: 90vh;
+  }
+
+  .hero-bio {
+    font-size: 15px;
+  }
+
   .hero-contact-icon {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
   }
 }

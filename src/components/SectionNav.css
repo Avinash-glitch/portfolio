@@ -1,71 +1,110 @@
-.section-nav {
+/* ─── Sidebar nav: fixed right, vertically centered ── */
+.snav {
   position: fixed;
-  right: 14px;
+  right: 28px;
   top: 50%;
   transform: translateY(-50%);
-  box-sizing: border-box;
   z-index: 110;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 14px 10px;
-  min-height: 280px;
-  justify-content: center;
-  border: 1px solid var(--border-color);
-  border-radius: 999px;
-  background: rgba(12, 16, 22, 0.82);
-  backdrop-filter: blur(8px);
+  gap: 20px;
 }
 
-.section-nav__link {
+/* ─── Each nav item: line + label ────────────────────── */
+.snav-item {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 12px;
   text-decoration: none;
-  color: var(--text-muted);
-  font-size: 12px;
-  padding: 7px 6px;
-  min-width: 76px;
-  text-align: center;
-  border-radius: 999px;
-  border: 1px solid transparent;
-  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
+  cursor: pointer;
+  /* Reverse row so line is on the right */
+  flex-direction: row-reverse;
+}
+
+/* ─── The line indicator ─────────────────────────────── */
+.snav-line {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: #5a7a9a;
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              background 0.25s ease;
+  flex-shrink: 0;
+}
+
+.snav-item:hover .snav-line {
+  width: 40px;
+  background: #ccd6f6;
+}
+
+.snav-item--active .snav-line {
+  width: 48px;
+  background: #64b5f6;
+}
+
+/* ─── The text label ─────────────────────────────────── */
+.snav-label {
+  font-family: monospace;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #5a7a9a;
+  transition: color 0.25s ease, opacity 0.25s ease;
+  opacity: 0;
   white-space: nowrap;
 }
 
-.section-nav__link:hover {
-  color: var(--text-main);
-  background: rgba(255, 255, 255, 0.08);
+.snav-item:hover .snav-label {
+  opacity: 1;
+  color: #ccd6f6;
 }
 
-.section-nav__link.is-active {
-  color: #1a1a1a;
-  background: #f59e0b;
-  border-color: #f59e0b;
+.snav-item--active .snav-label {
+  opacity: 1;
+  color: #64b5f6;
 }
 
+/* ─── Mobile: horizontal bar at bottom ───────────────── */
 @media (max-width: 860px) {
-  .section-nav {
+  .snav {
     top: auto;
-    bottom: calc(10px + env(safe-area-inset-bottom));
-    left: max(6px, env(safe-area-inset-left));
-    right: max(6px, env(safe-area-inset-right));
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    left: max(12px, env(safe-area-inset-left));
+    right: max(12px, env(safe-area-inset-right));
     transform: none;
     flex-direction: row;
-    gap: clamp(4px, 2vw, 10px);
-    min-height: auto;
     justify-content: center;
-    align-items: center;
-    padding: 8px;
-    width: auto;
-    max-width: none;
-    overflow-x: hidden;
+    gap: 0;
+    background: rgba(12, 16, 22, 0.88);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 999px;
+    padding: 10px 6px;
   }
 
-  .section-nav__link {
-    font-size: 10.5px;
-    padding: 8px 4px;
-    flex: 1 1 0;
-    min-width: 0;
+  .snav-item {
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    align-items: center;
+  }
+
+  /* On mobile, hide the line, show labels always */
+  .snav-line {
+    display: none;
+  }
+
+  .snav-label {
+    opacity: 1;
+    font-size: 10px;
+    color: #5a7a9a;
+  }
+
+  .snav-item--active .snav-label {
+    color: #64b5f6;
+  }
+
+  .snav-item:hover .snav-label {
+    color: #ccd6f6;
   }
 }

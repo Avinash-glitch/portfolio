@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./SectionNav.css";
 
 const links = [
-  { id: "hero", label: "Introduction" },
+  { id: "hero", label: "Intro" },
   { id: "projects", label: "Projects" },
   { id: "workflows", label: "Workflows" },
   { id: "experience", label: "Experience" },
@@ -42,14 +42,15 @@ function SectionNav() {
   }, []);
 
   return (
-    <nav className="section-nav" aria-label="Section navigation">
+    <nav className="snav" aria-label="Section navigation">
       {links.map((link) => (
         <a
           key={link.id}
           href={`#${link.id}`}
-          className={`section-nav__link ${activeId === link.id ? "is-active" : ""}`}
+          className={`snav-item ${activeId === link.id ? "snav-item--active" : ""}`}
         >
-          {link.label}
+          <span className="snav-line" />
+          <span className="snav-label">{link.label}</span>
         </a>
       ))}
     </nav>
@@ -57,5 +58,3 @@ function SectionNav() {
 }
 
 export default SectionNav;
-
-
