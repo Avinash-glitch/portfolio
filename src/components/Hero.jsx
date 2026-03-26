@@ -1,4 +1,4 @@
-import phoneIcon from "../assets/linphone.svg";
+import phoneIcon from "../assets/phone.svg";
 import gmailIcon from "../assets/gmail.svg";
 import githubIcon from "../assets/github.svg";
 import linkedinIcon from "../assets/linkedin.svg";

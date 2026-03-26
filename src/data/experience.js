@@ -3,7 +3,7 @@ const experience = [
     id: 1,
     company: "Amazon",
     role: "Software Development Engineer for Transportation",
-    duration: "Sept 2025 - Present",
+    duration: "Sept 2025 - March 2026",
     details: `
 -> Designed and implemented a rota generation application in Python using Streamlit UI, automatically allocating staff to daily tasks based on schedules, holidays, and operational requirements.
 
