@@ -3,12 +3,6 @@ import ProjectCard from "./ProjectCard";
 
 const projects = [
   {
-    title: "Storypose",
-    description: "An interactive pose-driven storytelling tool that uses real-time body pose estimation to map physical movements onto animated story characters.",
-    tech: ["Python", "OpenCV", "MediaPipe"],
-    link: "https://github.com/Avinash-glitch/Storypose",
-  },
-  {
     title: "Gait Analysis",
     description: "Real-time gait pattern analysis using embedded pressure sensors and signal processing to classify walking biomechanics and surface-level anomalies.",
     tech: ["Python", "Arduino", "Signal Processing"],
