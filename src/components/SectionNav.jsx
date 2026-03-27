@@ -4,7 +4,7 @@ import "./SectionNav.css";
 const links = [
   { id: "hero", label: "Intro" },
   { id: "projects", label: "Projects" },
-  { id: "workflows", label: "Workflows" },
+  { id: "case-studies", label: "Case Studies" },
   { id: "experience", label: "Experience" },
   { id: "skills", label: "Skills" },
 ];

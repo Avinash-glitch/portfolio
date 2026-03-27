@@ -1,7 +1,7 @@
 import './App.css'
 import Hero from "./components/Hero";
 import Projects from "./components/Projects";
-import Workflows from "./components/Workflows";
+import CaseStudies from "./components/CaseStudies";
 import Experience from "./components/Experience";
 import Skillset from './components/Skillset';
 import SectionNav from "./components/SectionNav";
@@ -16,7 +16,7 @@ function App() {
     }}>
       <Hero />
       <Projects />
-      <Workflows />
+      <CaseStudies />
       <Experience />
       <Skillset />
       <SectionNav />
