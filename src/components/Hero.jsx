@@ -11,12 +11,12 @@ function Hero() {
 
       <h1 className="hero-name">Avinash Kannan</h1>
 
-      <h2 className="hero-tagline">I build things that make life simpler.</h2>
+      <h2 className="hero-tagline">I build AI-powered products that ship.</h2>
 
       <p className="hero-bio">
-        A curious engineer with a knack for coding and project management,
-        passionate about music and technology, and driven to build products
-        that turn complex systems into simple, intuitive experiences.
+        Product engineer specialising in agentic AI systems — from LLM integration
+        and on-device ML to full-stack product delivery. I turn complex technical
+        capabilities into software people actually use.
       </p>
 
       <div className="hero-contact-icons">

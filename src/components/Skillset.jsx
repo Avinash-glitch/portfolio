@@ -2,27 +2,27 @@ import "./Skillset.css";
 
 const categories = [
   {
+    title: "AI & Agentic Systems",
+    skills: ["LangChain", "Anthropic SDK", "OpenAI API", "MediaPipe", "Prompt Engineering", "RAG Pipelines", "Multi-Agent Orchestration"],
+  },
+  {
     title: "Languages",
-    skills: ["Python", "C/C++", "Embedded C", "C#", "VHDL", "Scala", "SQL", "JavaScript"],
+    skills: ["Python", "JavaScript", "C/C++", "Embedded C", "SQL", "VHDL", "Scala"],
   },
   {
-    title: "Frameworks & Libraries",
-    skills: ["React", "JUCE", "Streamlit", "Langchain", "Arduino", "Unity"],
+    title: "Frameworks & Platforms",
+    skills: ["React", "Flask", "Streamlit", "JUCE", "Arduino", "Vite"],
   },
   {
-    title: "Tools & Platforms",
-    skills: ["GitLab", "Jira", "Airtable", "MATLAB", "LabVIEW", "Vivado", "Tableau", "Ableton", "Whimsical"],
-  },
-  {
-    title: "Domains",
-    skills: ["Signal Processing", "Machine Learning", "NLP & Agentic AI", "Embedded Systems", "Audio DSP", "UML & System Design"],
+    title: "Product & Tooling",
+    skills: ["Product Design", "System Design", "GitLab", "Jira", "Airtable", "Whimsical", "Tableau"],
   },
 ];
 
 const certifications = [
+  "Advanced NLP and Agentic AI",
   "Advanced C++",
   "Audio Signal Processing",
-  "Advanced NLP and Agentic AI",
 ];
 
 const hobbies = [

@@ -498,6 +498,11 @@ export default function CaseStudies() {
         <div style={s.divider} />
       </div>
 
+      <p style={{ color: '#667799', fontSize: '14px', lineHeight: 1.7, maxWidth: '540px', marginBottom: '40px', marginTop: '-32px' }}>
+        Products I've designed and built end-to-end — each with a live AI demo embedded below.
+        Real problems, real architecture decisions, real outcomes.
+      </p>
+
       <div>
         {CASE_STUDIES.map((study) => (
           <CaseStudyCard key={study.id} study={study} />
