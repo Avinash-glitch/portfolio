@@ -14,9 +14,9 @@ function Hero() {
       <h2 className="hero-tagline">I build AI-powered products that ship.</h2>
 
       <p className="hero-bio">
-        Product engineer specialising in agentic AI systems — from LLM integration
-        and on-device ML to full-stack product delivery. I turn complex technical
-        capabilities into software people actually use.
+        Product engineer spanning agentic AI, electronics, and signal processing —
+        from LLM integration and on-device ML to embedded systems and DSP pipelines.
+        I turn complex technical capabilities into software people actually use.
       </p>
 
       <div className="hero-contact-icons">
