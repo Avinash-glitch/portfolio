@@ -9,14 +9,6 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Bread & Jam",
-    description: "Git-style collaborative music platform. Musicians branch off each other's loops; producers bid on stem packages with auto-split revenue. Includes a hum-to-instrument converter that turns a phone-recorded melody into a synth WAV.",
-    tech: ["Python", "Flask-SocketIO", "WebRTC", "Audio DSP"],
-    link: "https://github.com/Avinash-glitch/bread-and-jam",
-    featured: true,
-    signal: "MUSIC TECH · MARKETPLACE",
-  },
-  {
     title: "SoundMap",
     description: "Your Spotify library, mapped by the people who actually listen with you. Tracks are positioned by playlist co-occurrence — songs that share playlists sit closer — and BYOK AI names the regions and curates from natural-language prompts.",
     tech: ["Python", "FastAPI", "Co-occurrence", "BYOK AI", "Canvas"],
