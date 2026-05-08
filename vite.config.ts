@@ -11,6 +11,9 @@ export default defineConfig(() => ({
       overlay: false,
     },
   },
+  preview: {
+    allowedHosts: ["avibuildsstuff.com", "www.avibuildsstuff.com"],
+  },
   plugins: [react()],
   resolve: {
     alias: {
