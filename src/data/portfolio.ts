@@ -12,7 +12,7 @@ export const projects: Project[] = [
     title: "SoundMap",
     description: "Your Spotify library, mapped by the people who actually listen with you. Tracks are positioned by playlist co-occurrence — songs that share playlists sit closer — and BYOK AI names the regions and curates from natural-language prompts.",
     tech: ["Python", "FastAPI", "Co-occurrence", "BYOK AI", "Canvas"],
-    link: "https://github.com/Avinash-glitch/SoundMap",
+    link: "https://soundmap.avibuildsstuff.com",
     featured: true,
     signal: "SOCIAL · MUSIC VIS",
   },

@@ -30,6 +30,8 @@ const pillars = [
   },
 ];
 
+const SOUNDMAP_URL = "https://soundmap.avibuildsstuff.com";
+
 // Deterministic pseudo-random points so the map is stable but feels organic
 const useScatter = (count: number) =>
   useMemo(() => {
@@ -65,7 +67,19 @@ const CaseStudy = () => {
 
   return (
     <section id="case-study" className="py-24 sm:py-32 relative">
-      <SectionHeader ch="CH.02 — Spotlight" title="SoundMap" />
+      <SectionHeader
+        ch="CH.02 — Spotlight"
+        title={
+          <a
+            href={SOUNDMAP_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-primary transition-colors"
+          >
+            SoundMap
+          </a>
+        }
+      />
 
       <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
         {/* Left: visual */}

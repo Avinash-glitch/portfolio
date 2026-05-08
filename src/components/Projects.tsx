@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Lock } from "lucide-react";
 import { projects } from "@/data/portfolio";
+import type { ReactNode } from "react";
 
-const SectionHeader = ({ ch, title, count }: { ch: string; title: string; count?: string }) => (
+const SectionHeader = ({ ch, title, count }: { ch: string; title: ReactNode; count?: string }) => (
   <div className="section-rule">
     <div className="flex items-baseline gap-4">
       <span className="channel-label">{ch}</span>
