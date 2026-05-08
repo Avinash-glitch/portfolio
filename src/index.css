@@ -1,111 +1,137 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter+Tight:wght@300;400;500;600;700;800&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* =========================================================
+   STUDIO / SIGNAL — Avinash Kannan portfolio design system
+   Warm charcoal · bone · electric amber · oscilloscope motif
+   ========================================================= */
 
-  --bg-main: #242424;        /* light graphite */
-  --card-bg: #1e2d40;
-  --backside-bg: #334155;     /* dark graphite */
-  --border-color: #202c3a;
-  --text-main: #dddddd;
-  --text-muted: #445e81;
-  --accent: #2563eb;         /* confident blue */
-
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646466;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-/* Experience Card Hover */
-.experience-card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  cursor: pointer;
-}
-
-.experience-card:hover {
-  transform: translateY(-4px) scale(1.01);
-  border-color: var(--accent);
-  box-shadow: 0 0 20px rgba(59,130,246,0.2);
-}
-.experience-card-back{
-  background-color: var(--backside-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  cursor: pointer;
-}
-
-.experience-card-back:hover {
-  transform: translateY(-4px) scale(1.01);
-  border-color: rgba(100, 181, 246, 0.3);
-  box-shadow: 0 0 20px rgba(100, 181, 246, 0.1);
-}
-
-@media (prefers-color-scheme: light) {
+@layer base {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    /* Surfaces */
+    --background: 30 8% 7%;          /* warm near-black */
+    --surface: 30 7% 10%;
+    --surface-2: 28 6% 13%;
+    --foreground: 40 25% 92%;        /* bone */
+    --muted: 30 5% 16%;
+    --muted-foreground: 35 8% 60%;
+
+    --card: 28 7% 10%;
+    --card-foreground: 40 25% 92%;
+
+    --popover: 28 7% 10%;
+    --popover-foreground: 40 25% 92%;
+
+    /* Brand: electric amber (VU meter glow) */
+    --primary: 32 100% 56%;
+    --primary-foreground: 30 8% 7%;
+    --primary-glow: 38 100% 64%;
+
+    --secondary: 28 6% 14%;
+    --secondary-foreground: 40 25% 92%;
+
+    --accent: 32 100% 56%;
+    --accent-foreground: 30 8% 7%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 40 25% 92%;
+
+    --border: 30 6% 18%;
+    --input: 30 6% 18%;
+    --ring: 32 100% 56%;
+
+    --radius: 0.25rem;
+
+    /* Signal effects */
+    --grain-opacity: 0.04;
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.25);
+    --shadow-elevated: 0 20px 60px -20px hsl(0 0% 0% / 0.6);
+    --gradient-amber: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-fade: linear-gradient(180deg, transparent, hsl(var(--background)));
+
+    /* Sidebar (unused, kept for shadcn) */
+    --sidebar-background: 30 8% 7%;
+    --sidebar-foreground: 40 25% 92%;
+    --sidebar-primary: 32 100% 56%;
+    --sidebar-primary-foreground: 30 8% 7%;
+    --sidebar-accent: 28 6% 14%;
+    --sidebar-accent-foreground: 40 25% 92%;
+    --sidebar-border: 30 6% 18%;
+    --sidebar-ring: 32 100% 56%;
   }
-  a:hover {
-    color: #4d4d53;
-  }
-  button {
-    background-color: #f9f9f9;
+
+  .dark { /* same — site is permanently dark */
+    --background: 30 8% 7%;
+    --foreground: 40 25% 92%;
   }
 }
 
+@layer base {
+  * { @apply border-border; }
 
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter Tight', system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11";
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, hsl(var(--primary) / 0.08), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 90% 110%, hsl(var(--primary-glow) / 0.05), transparent 60%);
+    background-attachment: fixed;
+  }
+
+  /* Film grain overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: var(--grain-opacity);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+
+  ::selection { background: hsl(var(--primary)); color: hsl(var(--primary-foreground)); }
+}
+
+@layer components {
+  .font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  .font-display { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 800; letter-spacing: -0.04em; }
+
+  .channel-label {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-primary;
+  }
+
+  .section-rule {
+    @apply flex items-center gap-4 mb-12;
+  }
+  .section-rule::after {
+    content: "";
+    @apply flex-1 h-px bg-border;
+  }
+
+  .grid-lines {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .glow-on-hover {
+    @apply transition-all duration-300;
+  }
+  .glow-on-hover:hover {
+    box-shadow: var(--shadow-glow);
+    border-color: hsl(var(--primary) / 0.6);
+  }
+
+  .led {
+    @apply inline-block w-1.5 h-1.5 rounded-full bg-primary;
+    box-shadow: 0 0 8px hsl(var(--primary) / 0.8);
+  }
+}
