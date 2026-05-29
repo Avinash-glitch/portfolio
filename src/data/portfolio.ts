@@ -25,6 +25,14 @@ export const projects: Project[] = [
     signal: "AUDIO PLUGIN · DSP",
   },
   {
+    title: "Tennitus",
+    description: "Local-first iOS companion for people with tinnitus. Spike logging, daily check-ins, trigger tracking, audiogram entry, AVFoundation pitch-matching at 44.1 kHz, deterministic subtype classification, and clinician-ready PDF reports — all processed on-device.",
+    tech: ["Swift", "SwiftUI", "AVFoundation", "DSP", "CoreData"],
+    link: "https://github.com/Avinash-glitch/Tennitus",
+    featured: true,
+    signal: "iOS · HEALTH TECH · DSP",
+  },
+  {
     title: "Embedded Foot Pressure Monitor",
     description: "64-sensor FSR array driven by dual Arduino Mega 2560s with Python-based realtime visualisation. Used for gait research and biomechanics analysis.",
     tech: ["Arduino", "Embedded C", "Python"],
@@ -63,6 +71,16 @@ export type Experience = {
 };
 
 export const experiences: Experience[] = [
+  {
+    id: "parable",
+    company: "Parable",
+    role: "Software Engineer",
+    duration: "May 2026 — Present",
+    details: [
+      "Building automation algorithms for repetitive accounting workflows, reducing manual overhead across core financial processes.",
+      "Designing and shipping intelligent automation pipelines that identify, extract, and process structured data from accounting tasks with minimal human intervention.",
+    ],
+  },
   {
     id: "amazon",
     company: "Amazon",
