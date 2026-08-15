@@ -6,7 +6,7 @@ const contacts = [
   { href: "tel:+447767926439", label: "+44 7767 926439", icon: Phone, short: "PHONE" },
   { href: "mailto:Kannan.avinash.ak@gmail.com", label: "Kannan.avinash.ak@gmail.com", icon: Mail, short: "MAIL" },
   { href: "https://github.com/Avinash-glitch", label: "Avinash-glitch", icon: Github, short: "GIT" },
-  { href: "https://www.linkedin.com/in/avinash-kannan/", label: "avinash-kannan", icon: Linkedin, short: "LINKEDIN" },
+  { href: "https://www.linkedin.com/in/avinash-kannan-294126131/", label: "avinash-kannan", icon: Linkedin, short: "LINKEDIN" },
 ];
 
 const Hero = () => {
