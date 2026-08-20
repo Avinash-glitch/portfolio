@@ -12,7 +12,7 @@ export const projects: Project[] = [
     title: "PulseForge",
     description: "iPhone app that turns everyday sounds into playable drum kits. Record anything, and on-device DSP — onset detection, feature extraction and rule-based role classification — works out which pad it belongs on, then four musical controls shape it. Exports pad-named WAVs and MIDI. Nothing leaves the device.",
     tech: ["Swift", "SwiftUI", "AVFoundation", "DSP", "SwiftData"],
-    link: null,
+    link: "https://github.com/Avinash-glitch/PulseForge",
     featured: true,
     signal: "iOS · AUDIO DSP · MUSIC",
   },
