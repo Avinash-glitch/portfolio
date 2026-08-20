@@ -9,6 +9,14 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "PulseForge",
+    description: "iPhone app that turns everyday sounds into playable drum kits. Record anything, and on-device DSP — onset detection, feature extraction and rule-based role classification — works out which pad it belongs on, then four musical controls shape it. Exports pad-named WAVs and MIDI. Nothing leaves the device.",
+    tech: ["Swift", "SwiftUI", "AVFoundation", "DSP", "SwiftData"],
+    link: null,
+    featured: true,
+    signal: "iOS · AUDIO DSP · MUSIC",
+  },
+  {
     title: "SoundMap",
     description: "Your Spotify library, mapped by the people who actually listen with you. Tracks are positioned by playlist co-occurrence — songs that share playlists sit closer — and BYOK AI names the regions and curates from natural-language prompts.",
     tech: ["Python", "FastAPI", "Co-occurrence", "BYOK AI", "Canvas"],
