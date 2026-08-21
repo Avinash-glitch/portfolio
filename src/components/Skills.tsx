@@ -13,7 +13,7 @@ const hobbyIcons: Record<string, LucideIcon> = {
 const Skills = () => {
   return (
     <section id="skills" className="py-24 sm:py-32">
-      <SectionHeader ch="CH.04 — Stack" title="Frequency Bands" />
+      <SectionHeader ch="CH.06 — Stack" title="Frequency Bands" />
 
       <div className="space-y-px bg-border border border-border">
         {skillCategories.map((cat, i) => (

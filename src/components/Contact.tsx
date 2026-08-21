@@ -12,7 +12,7 @@ const Contact = () => {
           className="channel-label mb-6 inline-flex items-center gap-3"
         >
           <span className="led animate-blink" />
-          CH.05 — Outro
+          CH.07 — Outro
         </motion.p>
 
         <motion.h2

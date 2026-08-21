@@ -9,7 +9,7 @@ const Experience = () => {
 
   return (
     <section id="experience" className="py-24 sm:py-32">
-      <SectionHeader ch="CH.03 — Timeline" title="Experience" />
+      <SectionHeader ch="CH.05 — Timeline" title="Experience" />
 
       <div className="grid md:grid-cols-12 gap-px bg-border border border-border">
         {/* Tabs */}

@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 
 const links = [
   { id: "hero", label: "00", name: "Identity" },
-  { id: "work", label: "01", name: "Work" },
+  { id: "pulseforge-spotlight", label: "01", name: "PulseForge" },
   { id: "case-study", label: "02", name: "SoundMap" },
   { id: "tinnitus-spotlight", label: "03", name: "Tennitus" },
-  { id: "experience", label: "04", name: "Timeline" },
-  { id: "skills", label: "05", name: "Stack" },
-  { id: "contact", label: "06", name: "Outro" },
+  { id: "work", label: "04", name: "Work" },
+  { id: "experience", label: "05", name: "Timeline" },
+  { id: "skills", label: "06", name: "Stack" },
+  { id: "contact", label: "07", name: "Outro" },
 ];
 
 const SideNav = () => {

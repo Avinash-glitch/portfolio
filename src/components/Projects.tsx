@@ -199,7 +199,7 @@ const Projects = () => {
   return (
     <>
       <section id="work" ref={sectionRef} className="relative py-16 sm:py-20">
-        <SectionHeader ch="CH.01 — Work" title="Selected Projects" count={`${projects.length} / ${projects.length}`} />
+        <SectionHeader ch="CH.04 — Work" title="Selected Projects" count={`${projects.length} / ${projects.length}`} />
 
         <div className="mb-10 flex flex-col gap-3 sm:mb-12 sm:flex-row sm:items-end sm:justify-between">
           <p className="max-w-2xl text-base leading-relaxed text-foreground/70">

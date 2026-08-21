@@ -105,7 +105,7 @@ const Hero = () => {
           <Waveform />
         </div>
         <div className="flex items-center justify-between mt-4 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-          <span>↓ SCROLL · CH.01 — WORK</span>
+          <span>↓ SCROLL · CH.01 — SPOTLIGHT</span>
           <ArrowDown className="w-3 h-3 animate-bounce" />
           <span className="hidden sm:inline">44.1KHZ · 24-BIT</span>
         </div>

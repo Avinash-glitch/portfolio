@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
+import PulseForgeSpotlight from "@/components/PulseForgeSpotlight";
 import CaseStudy from "@/components/CaseStudy";
 import TinnitusSpotlight from "@/components/TinnitusSpotlight";
 import Experience from "@/components/Experience";
@@ -13,9 +14,10 @@ const Index = () => {
       <SideNav />
       <div className="container max-w-6xl">
         <Hero />
-        <Projects />
+        <PulseForgeSpotlight />
         <CaseStudy />
         <TinnitusSpotlight />
+        <Projects />
         <Experience />
         <Skills />
         <Contact />
